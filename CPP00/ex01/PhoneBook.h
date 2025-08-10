@@ -5,29 +5,35 @@
 #include <iomanip>
 #include <string>
 
-class Contract
+class Contact
 {
     private:
-        std::string firstName = "";
-        std::string lastName = "";
-        std::string nickname = "";
-        std::string phoneNumber = "";
-        std::string darkestSecret = "";
-        void getInput(std::string &field, std::string input);
+        std::string firstName;
+        std::string lastName;
+        std::string nickname;
+        std::string phoneNumber;
+        std::string darkestSecret;
+        
     public:
-        Contract create();
+        Contact();
+        Contact create();
         void display(int index);
-
+        
+    private:
+        void getInput(std::string &field, std::string prompt);
+        void displayString(std::string str);
 };
 
 class PhoneBook
 {
     private:
-        Contract contracts[8];
+        Contact contacts[8];
         int count;
+        
     public:
-        void addContract(Contract contract);
-        void searchContract(int index);
+        PhoneBook();
+        void addContact(Contact contact);
+        void searchContact(int index);
 };
 
 #endif

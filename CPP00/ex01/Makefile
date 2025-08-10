@@ -5,7 +5,7 @@ NAME = PhoneBook
 SRC_DIR = .
 OBJ_DIR = obj
 
-SRC = main.cpp
+SRC = main.cpp PhoneBook.cpp Contact.cpp
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
