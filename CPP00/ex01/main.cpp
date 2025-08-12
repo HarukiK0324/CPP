@@ -20,7 +20,7 @@ int main()
             int index;
             std::cout << "Enter index to search: ";
             std::cin >> index;
-            std::cin.ignore(); // Clear the newline character
+            std::cin.ignore();
             phoneBook.searchContact(index);
         }
         else if(command == "EXIT")
