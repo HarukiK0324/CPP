@@ -17,8 +17,9 @@ class Contact
     public:
         Contact();
         Contact create();
+        void displaySimple(int index);
         void display(int index);
-        
+
     private:
         void getInput(std::string &field, std::string prompt);
         void displayString(std::string str);
@@ -33,7 +34,9 @@ class PhoneBook
     public:
         PhoneBook();
         void addContact(Contact contact);
-        void searchContact(int index);
+        void displayContacts();
+        void searchContact();
+        
 };
 
 #endif

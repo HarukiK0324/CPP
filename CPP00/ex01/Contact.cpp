@@ -34,7 +34,7 @@ void Contact::displayString(std::string str)
     std::cout << std::right << std::setw(10) << str << "|";
 }
 
-void Contact::display(int index)
+void Contact::displaySimple(int index)
 {
     std::cout << "|";
     displayString(std::to_string(index));
@@ -42,4 +42,14 @@ void Contact::display(int index)
     displayString(lastName);
     displayString(nickname);
     std::cout << std::endl;
+}
+
+void Contact::display(int index)
+{
+    std::cout << "Contact Index: " << index << std::endl;
+    std::cout << "First Name: " << firstName << std::endl;
+    std::cout << "Last Name: " << lastName << std::endl;
+    std::cout << "Nickname: " << nickname << std::endl;
+    std::cout << "Phone Number: " << phoneNumber << std::endl;
+    std::cout << "Darkest Secret: " << darkestSecret << std::endl;
 }

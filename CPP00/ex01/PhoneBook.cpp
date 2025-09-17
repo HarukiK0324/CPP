@@ -17,8 +17,38 @@ void PhoneBook::addContact(Contact contact)
     }
 }
 
-void PhoneBook::searchContact(int index)
+void PhoneBook::displayContacts()
 {
+    std::cout << "|" << std::setw(10) << std::right << "Index";
+    std::cout << "|" << std::setw(10) << std::right << "First Name";
+    std::cout << "|" << std::setw(10) << std::right << "Last Name";
+    std::cout << "|" << std::setw(10) << std::right << "Nickname";
+    std::cout << "|" << std::endl;
+    std::cout << std::string(45, '-') << std::endl;
+    for(int i = 0; i < count; i++)
+    {
+        contacts[i].displaySimple(i);
+    }
+}
+
+void PhoneBook::searchContact()
+{
+    int index;
+    std::string input;
+    if(count == 0)
+    {
+        std::cout << "No contacts available." << std::endl;
+        return;
+    }
+    displayContacts();
+    std::cout << "Enter index to search: ";
+    if(std::getline(std::cin, input))
+        index = std::stoi(input);
+    else
+    {
+        std::cout << "Invalid input." << std::endl;
+        return;
+    }
     if (index < 0 || index >= count)
     {
         std::cout << "Invalid index." << std::endl;

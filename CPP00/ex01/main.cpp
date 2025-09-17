@@ -4,6 +4,7 @@ int main()
 {
     PhoneBook phoneBook;
     std::string command;
+    Contact newContact;
     
     while(true)
     {
@@ -12,16 +13,13 @@ int main()
         
         if (command == "ADD")
         {
-            Contact newContact;
+            command.clear();
             phoneBook.addContact(newContact.create());
         }
         else if(command == "SEARCH")
         {
-            int index;
-            std::cout << "Enter index to search: ";
-            std::cin >> index;
-            std::cin.ignore();
-            phoneBook.searchContact(index);
+            command.clear();
+            phoneBook.searchContact();
         }
         else if(command == "EXIT")
             break;

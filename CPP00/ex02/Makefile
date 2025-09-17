@@ -1,6 +1,6 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = account
+NAME = Account
 
 SRC_DIR = .
 OBJ_DIR = obj
