@@ -6,6 +6,10 @@ std::string ft_replace(std::string str, std::string s1, std::string s2)
 {
     std::string new_str;
 
+    if (s1.empty()) {
+        return str;
+    }
+
     while(str.find(s1) != std::string::npos)
     {
         new_str += str.substr(0, str.find(s1));
@@ -33,12 +37,6 @@ int main(int argc, char **argv)
     if (!new_file.is_open())
     {
         std::cerr << "Error: could not create file " << argv[1] + std::string(".replace") << std::endl;
-        return 1;
-    }
-
-    if(std::string(argv[2]).empty())
-    {
-        std::cerr << "Error: s1 cannot be empty" << std::endl;
         return 1;
     }
 
