@@ -1,12 +1,14 @@
 CXX = c++
 # CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = Fixed
+NAME = bsp
 
 SRC_DIR = .
 OBJ_DIR = obj
 
 SRC = main.cpp \
-	  Fixed.cpp
+	  Fixed.cpp \
+	  Point.cpp \
+	  bsp.cpp
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
