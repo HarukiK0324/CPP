@@ -10,7 +10,7 @@ Point::Point( const float x, const float y ) : x(Fixed(x)), y(Fixed(y))
     std::cout << "Parameterized constructor called" << std::endl;
 }
 
-Point::Point( Point &src) : x(src.x), y(src.y)
+Point::Point( const Point &src) : x(src.x), y(src.y)
 {
     std::cout << "Copy constructor called" << std::endl;
 }
