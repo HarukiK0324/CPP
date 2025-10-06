@@ -3,11 +3,11 @@
 
 #include "ClapTrap.hpp"
 
-#define init_SV_HP 100
-#define init_SV_EP 50
-#define init_SV_AD 20
-
 class ScavTrap : public ClapTrap {
+    private:
+        static const unsigned int init_HP = 100;
+        static const unsigned int init_EP = 50;
+        static const unsigned int init_AD = 20;
     public:
         ScavTrap( const std::string& name);
         ScavTrap( const ScavTrap& src );

@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap( const std::string& name ) : name(name), hitPoints(init_CT_HP), energyPoints(init_CT_EP), attackDamage(init_CT_AD)
+ClapTrap::ClapTrap( const std::string& name ) : name(name), hitPoints(init_HP), energyPoints(init_EP), attackDamage(init_AD)
 {
     std::cout << "ClapTrap " << name << " created with constructor" << std::endl;
 }

@@ -2,9 +2,9 @@
 
 ScavTrap::ScavTrap( const std::string& name) : ClapTrap(name)
 {
-    this->hitPoints = init_ST_HP;
-    this->energyPoints = init_ST_EP;
-    this->attackDamage = init_ST_AD;
+    this->hitPoints = init_HP;
+    this->energyPoints = init_EP;
+    this->attackDamage = init_AD;
     std::cout << "ScavTrap " << name << " created with constructor" << std::endl;
 }
 

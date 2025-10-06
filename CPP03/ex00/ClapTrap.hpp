@@ -4,16 +4,15 @@
 #include <string>
 #include <iostream>
 
-#define init_HP 10
-#define init_EP 10
-#define init_AD 0
-
 class ClapTrap {
     private:
         std::string name;
         unsigned int hitPoints;
         unsigned int energyPoints;
         unsigned int attackDamage;
+        static const unsigned int init_HP = 10;
+        static const unsigned int init_EP = 10;
+        static const unsigned int init_AD = 0;
     public:
         ClapTrap( const std::string& name );
         ClapTrap( const ClapTrap& src );

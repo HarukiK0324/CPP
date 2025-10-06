@@ -3,11 +3,11 @@
 
 #include "ClapTrap.hpp"
 
-#define init_FT_HP 100
-#define init_FT_EP 50
-#define init_FT_AD 20
-
-class FlagTrap : public ClapTrap {
+class FlagTrap : public virtual ClapTrap {
+    protected:
+        static const unsigned int init_HP = 100;
+        static const unsigned int init_EP = 50;
+        static const unsigned int init_AD = 20;
     public:
         FlagTrap(const std::string& name);
         FlagTrap(const FlagTrap& src);

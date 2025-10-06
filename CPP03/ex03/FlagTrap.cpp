@@ -2,9 +2,9 @@
 
 FlagTrap::FlagTrap(const std::string& name) : ClapTrap(name)
 {
-    this->hitPoints = init_FT_HP;
-    this->energyPoints = init_FT_EP;
-    this->attackDamage = init_FT_AD;
+    this->hitPoints = init_HP;
+    this->energyPoints = init_EP;
+    this->attackDamage = init_AD;
     std::cout << "FlagTrap " << name << " created with constructor" << std::endl;
 }
 
