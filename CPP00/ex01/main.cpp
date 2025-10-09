@@ -14,17 +14,17 @@ int main()
             break;
         }
         if (command == "ADD")
-        {
-            command.clear();
             phoneBook.addContact(Contact::create());
-        }
         else if(command == "SEARCH")
-        {
-            command.clear();
             phoneBook.searchContact();
-        }
         else if(command == "EXIT")
             break;
+        command.clear();
+        if (std::cin.eof())
+        {
+            std::cin.clear();
+            std::cout << std::endl;
+        }
     }
     return 0;
 }
