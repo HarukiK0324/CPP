@@ -4,13 +4,11 @@ int main()
 {
     PhoneBook phoneBook;
     std::string command;
-    Contact newContact;
     
     while(true)
     {
         std::cout << "Enter command (ADD, SEARCH, EXIT): ";
-        std::getline(std::cin, command);
-        if(std::cin.eof())
+        if(!std::getline(std::cin, command))
         {
             std::cout << "\nEOF detected, exiting program" << std::endl;
             break;
@@ -18,7 +16,7 @@ int main()
         if (command == "ADD")
         {
             command.clear();
-            phoneBook.addContact(newContact.create());
+            phoneBook.addContact(Contact::create());
         }
         else if(command == "SEARCH")
         {

@@ -20,9 +20,10 @@ class Contact
         
     public:
         Contact();
-        Contact create();
+        static Contact create();
         void displaySimple(int index);
         void display(int index);
+        bool isValid(const Contact &contact);
 };
 
 #endif

@@ -8,8 +8,12 @@ void Contact::getInput(std::string &field, std::string prompt)
     while(field.empty())
     {
         std::cout << prompt;
-        std::getline(std::cin, field);
-        if(std::cin.eof() || field.empty())
+        if(!std::getline(std::cin, field))
+        {
+            std::cout << "\nEOF detected, exiting creation" << std::endl;
+            return;
+        }
+        else if(field.empty())
             std::cout << "A saved contact can't have empty fields" << std::endl;
     }
 }
@@ -19,8 +23,12 @@ void Contact::getNumberInput(std::string &field, std::string prompt)
     while(field.empty())
     {
         std::cout << prompt;
-        std::getline(std::cin, field);
-        if(std::cin.eof() || field.empty())
+        if(!std::getline(std::cin, field))
+        {
+            std::cout << "\nEOF detected, exiting creation" << std::endl;
+            return;
+        }
+        else if(field.empty())
         {
             std::cout << "A saved contact can't have empty fields" << std::endl;
             continue;
@@ -45,11 +53,19 @@ void Contact::getNumberInput(std::string &field, std::string prompt)
 Contact Contact::create()
 {
     Contact contact;
-    getInput(contact.firstName, "Enter first name: ");
-    getInput(contact.lastName, "Enter last name: ");
-    getInput(contact.nickname, "Enter nickname: ");
-    getNumberInput(contact.phoneNumber, "Enter phone number: ");
-    getInput(contact.darkestSecret, "Enter darkest secret: ");
+    contact.getInput(contact.firstName, "Enter First Name: ");
+    if(std::cin.eof()) 
+        return contact;
+    contact.getInput(contact.lastName, "Enter Last Name: ");
+    if(std::cin.eof()) 
+        return contact;
+    contact.getInput(contact.nickname, "Enter Nickname: ");
+    if(std::cin.eof()) 
+        return contact;
+    contact.getNumberInput(contact.phoneNumber, "Enter Phone Number: ");
+    if(std::cin.eof()) 
+        return contact;
+    contact.getInput(contact.darkestSecret, "Enter Darkest Secret: ");
     return contact;
 }
 
@@ -78,4 +94,11 @@ void Contact::display(int index)
     std::cout << "Nickname: " << nickname << std::endl;
     std::cout << "Phone Number: " << phoneNumber << std::endl;
     std::cout << "Darkest Secret: " << darkestSecret << std::endl;
+}
+
+bool Contact::isValid(const Contact &contact)
+{
+    return !(contact.firstName.empty() || contact.lastName.empty() ||
+             contact.nickname.empty() || contact.phoneNumber.empty() ||
+             contact.darkestSecret.empty());
 }

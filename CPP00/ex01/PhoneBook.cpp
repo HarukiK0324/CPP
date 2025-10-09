@@ -4,6 +4,8 @@ PhoneBook::PhoneBook() : count(0) {}
 
 void PhoneBook::addContact(Contact contact)
 {
+    if(!contact.isValid(contact))
+        return;
     if(count < 8)
     {
         contacts[count] = contact;
