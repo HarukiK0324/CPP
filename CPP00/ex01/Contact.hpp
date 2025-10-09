@@ -15,6 +15,7 @@ class Contact
         std::string darkestSecret;
 
         void getInput(std::string &field, std::string prompt);
+        void getNumberInput(std::string &field, std::string prompt);
         void displayString(std::string str);
         
     public:

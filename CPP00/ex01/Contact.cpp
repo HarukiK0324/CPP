@@ -5,25 +5,51 @@ Contact::Contact() : firstName(""), lastName(""), nickname(""),
 
 void Contact::getInput(std::string &field, std::string prompt)
 {
-    std::cout << prompt;
-    std::getline(std::cin, field);
-    if(field.empty())
-        std::cout << "A saved contact can't have empty fields" << std::endl;
+    while(field.empty())
+    {
+        std::cout << prompt;
+        std::getline(std::cin, field);
+        if(std::cin.eof() || field.empty())
+            std::cout << "A saved contact can't have empty fields" << std::endl;
+    }
+}
+
+void Contact::getNumberInput(std::string &field, std::string prompt)
+{
+    while(field.empty())
+    {
+        std::cout << prompt;
+        std::getline(std::cin, field);
+        if(std::cin.eof() || field.empty())
+        {
+            std::cout << "A saved contact can't have empty fields" << std::endl;
+            continue;
+        }
+        try
+        {
+            std::stoll(field);
+        }
+        catch(const std::invalid_argument& e)
+        {
+            std::cout << "Invalid phone number format" << std::endl;
+            field.clear();
+        }
+        catch(const std::out_of_range& e)
+        {
+            std::cout << "Invalid phone number format" << std::endl;
+            field.clear();
+        }
+    }
 }
 
 Contact Contact::create()
 {
     Contact contact;
-    while(contact.firstName.empty())
-        getInput(contact.firstName, "Enter first name: ");
-    while(contact.lastName.empty())
-        getInput(contact.lastName, "Enter last name: ");
-    while(contact.nickname.empty())
-        getInput(contact.nickname, "Enter nickname: ");
-    while(contact.phoneNumber.empty())
-        getInput(contact.phoneNumber, "Enter phone number: ");
-    while(contact.darkestSecret.empty())
-        getInput(contact.darkestSecret, "Enter darkest secret: ");
+    getInput(contact.firstName, "Enter first name: ");
+    getInput(contact.lastName, "Enter last name: ");
+    getInput(contact.nickname, "Enter nickname: ");
+    getNumberInput(contact.phoneNumber, "Enter phone number: ");
+    getInput(contact.darkestSecret, "Enter darkest secret: ");
     return contact;
 }
 

@@ -12,7 +12,7 @@ int main()
         std::getline(std::cin, command);
         if(std::cin.eof())
         {
-            std::cout << "\nEOF detected. Exiting program." << std::endl;
+            std::cout << "\nEOF detected, exiting program" << std::endl;
             break;
         }
         if (command == "ADD")

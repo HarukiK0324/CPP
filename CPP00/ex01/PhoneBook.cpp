@@ -42,16 +42,24 @@ void PhoneBook::searchContact()
     }
     displayContacts();
     std::cout << "Enter index to search: ";
-    if(std::getline(std::cin, input))
-        index = std::stoi(input);
-    else
+    std::getline(std::cin, input);
+    if(std::cin.eof())
     {
+        std::cout << "\nEOF detected, exiting search" << std::endl;
+        return;
+    }
+    try {
+        index = std::stoi(input);
+    } catch (const std::invalid_argument& e) {
         std::cout << "Invalid input." << std::endl;
+        return;
+    } catch (const std::out_of_range& e) {
+        std::cout << "Invalid index" << std::endl;
         return;
     }
     if (index < 0 || index >= count)
     {
-        std::cout << "Invalid index." << std::endl;
+        std::cout << "Invalid index" << std::endl;
         return;
     }
     contacts[index].display(index);
