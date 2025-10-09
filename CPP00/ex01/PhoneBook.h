@@ -5,25 +5,7 @@
 #include <iomanip>
 #include <string>
 
-class Contact
-{
-    private:
-        std::string firstName;
-        std::string lastName;
-        std::string nickname;
-        std::string phoneNumber;
-        std::string darkestSecret;
-        
-    public:
-        Contact();
-        Contact create();
-        void displaySimple(int index);
-        void display(int index);
-
-    private:
-        void getInput(std::string &field, std::string prompt);
-        void displayString(std::string str);
-};
+#include "Contact.hpp"
 
 class PhoneBook
 {
