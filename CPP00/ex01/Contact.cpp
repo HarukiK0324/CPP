@@ -11,7 +11,7 @@ void Contact::getInput(std::string &field, std::string prompt)
         if(!std::getline(std::cin, field))
         {
             std::cout << "\nEOF detected, exiting creation" << std::endl;
-            return;
+            std::exit(0);
         }
         else if(field.empty())
             std::cout << "A saved contact can't have empty fields" << std::endl;
@@ -26,7 +26,7 @@ void Contact::getNumberInput(std::string &field, std::string prompt)
         if(!std::getline(std::cin, field))
         {
             std::cout << "\nEOF detected, exiting creation" << std::endl;
-            return;
+            std::exit(0);
         }
         else if(field.empty())
         {
@@ -54,17 +54,9 @@ Contact Contact::create()
 {
     Contact contact;
     contact.getInput(contact.firstName, "Enter First Name: ");
-    if(std::cin.eof()) 
-        return contact;
     contact.getInput(contact.lastName, "Enter Last Name: ");
-    if(std::cin.eof()) 
-        return contact;
     contact.getInput(contact.nickname, "Enter Nickname: ");
-    if(std::cin.eof()) 
-        return contact;
     contact.getNumberInput(contact.phoneNumber, "Enter Phone Number: ");
-    if(std::cin.eof()) 
-        return contact;
     contact.getInput(contact.darkestSecret, "Enter Darkest Secret: ");
     return contact;
 }

@@ -44,10 +44,10 @@ void PhoneBook::searchContact()
     }
     displayContacts();
     std::cout << "Enter index to search: ";
-    std::getline(std::cin, input);
-    if(std::cin.eof())
+    if(!std::getline(std::cin, input))
     {
         std::cout << "\nEOF detected, exiting search" << std::endl;
+        std::exit(0);
         return;
     }
     try {

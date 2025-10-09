@@ -20,11 +20,6 @@ int main()
         else if(command == "EXIT")
             break;
         command.clear();
-        if (std::cin.eof())
-        {
-            std::cin.clear();
-            std::cout << std::endl;
-        }
     }
     return 0;
 }
