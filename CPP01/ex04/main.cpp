@@ -4,16 +4,17 @@
 
 std::string ft_replace(std::string str, std::string s1, std::string s2)
 {
-    std::string new_str;
+    std::string new_str = "";
 
-    if (s1.empty()) {
+    if (s1.empty() || (str.find(s1) == std::string::npos)) {
         return str;
     }
 
     while(str.find(s1) != std::string::npos)
     {
         new_str += str.substr(0, str.find(s1));
-        new_str += s2;
+        if(!s2.empty())
+            new_str += s2;
         str = str.substr(str.find(s1) + s1.length());
     }
     return new_str;
@@ -45,7 +46,9 @@ int main(int argc, char **argv)
     while(std::getline(file, s))
     {
         s = ft_replace(s, argv[2], argv[3]);
-        new_file << s << std::endl;
+        new_file << s;
+        if(!file.eof())
+            new_file << std::endl;
     }
     
     if(file.fail() && !file.eof())

@@ -2,6 +2,7 @@
 
 HumanB::HumanB(std::string name) :name(name), weapon(NULL)
 {
+    std::cout << this->name << " is created." << std::endl;
 }
 
 void HumanB::setWeapon(Weapon& weapon)

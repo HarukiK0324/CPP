@@ -1,6 +1,6 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = FT_REPLACE
+NAME = ft_replace
 
 SRC_DIR = .
 OBJ_DIR = obj

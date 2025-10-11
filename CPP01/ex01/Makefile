@@ -1,11 +1,12 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = HI_THIS_IS_BRAIN
+NAME = zombieHorde
 
 SRC_DIR = .
 OBJ_DIR = obj
 
 SRC = main.cpp \
+	  Zombie.cpp \
 	  zombieHorde.cpp
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)

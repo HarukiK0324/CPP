@@ -5,15 +5,15 @@
 #include <iostream>
 
 class Zombie {
-    public:
-        void announce( void );
-        Zombie* newZombie( std::string name );
-        void randomChump( std::string name );
-        static Zombie* zombieHorde( int N, std::string name );
-        Zombie(std::string name);
-        ~Zombie(void);
     private:
         std::string name;
+    public:
+        void announce( void );
+        Zombie();
+        ~Zombie(void);
+        void setName(std::string name);
 };
+
+Zombie* zombieHorde( int N, std::string name );
 
 #endif
