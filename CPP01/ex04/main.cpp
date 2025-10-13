@@ -6,7 +6,7 @@ std::string ft_replace(std::string str, std::string s1, std::string s2)
 {
     std::string new_str = "";
 
-    if (s1.empty() || (str.find(s1) == std::string::npos)) {
+    if (s1.empty()) {
         return str;
     }
 
@@ -17,7 +17,7 @@ std::string ft_replace(std::string str, std::string s1, std::string s2)
             new_str += s2;
         str = str.substr(str.find(s1) + s1.length());
     }
-    return new_str;
+    return new_str + str;
 }
 
 int main(int argc, char **argv)
