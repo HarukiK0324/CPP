@@ -18,4 +18,7 @@ class Point {
         Fixed getY() const { return this->y; }
 };
 
+bool bsp( Point const a, Point const b, Point const c, Point const point);
+bool same_point(Point const a, Point const b);
+
 #endif

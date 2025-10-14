@@ -18,9 +18,9 @@ Point::Point( const Point &src) : x(src.x), y(src.y)
 Point& Point::operator=( const Point &src)
 {
     std::cout << "Assignment operator called" << std::endl;
-    if (this != &src)
+    if (this == &src)
     {
-        Point(src);
+        *this = Point(src);
     }
     return *this;
 }

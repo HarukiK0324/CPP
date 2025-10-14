@@ -18,3 +18,22 @@ int         main( void ) {
     
     return 0;
 }
+
+
+// int main()
+// {
+//     Fixed a(5.05f);
+//     Fixed b(5.04f);
+
+//     std::cout << "a: " << a << ", b: " << b << std::endl;
+//     std::cout << "a + b: " << a + b << std::endl;
+//     std::cout << "a - b: " << a - b << std::endl;
+//     std::cout << "a * b: " << a * b << std::endl;
+//     std::cout << "a / b: " << a / b << std::endl;
+//     std::cout << "a > b: " << (a > b) << std::endl;
+//     std::cout << "a < b: " << (a < b) << std::endl;
+//     std::cout << "a >= b: " << (a >= b) << std::endl;
+//     std::cout << "a <= b: " << (a <= b) << std::endl;
+//     std::cout << "a == b: " << (a == b) << std::endl;
+//     std::cout << "a != b: " << (a != b) << std::endl;
+// }
