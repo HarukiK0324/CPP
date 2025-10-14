@@ -9,20 +9,6 @@ int main(int argc, char *argv[])
     }
 
     Harl harl;
-    std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-
-    for(int i = 0;i < 4;i++)
-    {
-        if(levels[i] == argv[1])
-        {
-            for(int j = i;j < 4;j++)
-            {
-                harl.complain(levels[j]);
-                std::cout << std::endl;
-            }
-            return 0;
-        }
-    }
-    std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+    harl.complain(argv[1]);
     return 0;
 }
