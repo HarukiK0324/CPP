@@ -117,7 +117,7 @@ void	Account::displayStatus( void ) const
 
 void	Account::_displayTimestamp( void )
 {
-	time_t timestamp = time(&timestamp);
+	time_t timestamp = time(NULL);
 	struct tm datetime = *localtime(&timestamp);
 	std::cout << "[" << (datetime.tm_year + 1900)
 			  << (datetime.tm_mon + 1 < 10 ? "0" : "") << (datetime.tm_mon + 1)
