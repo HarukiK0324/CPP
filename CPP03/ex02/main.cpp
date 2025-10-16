@@ -1,13 +1,17 @@
 #include "ClapTrap.hpp"
+#include "FlagTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
-    ClapTrap clapA("ClapA");
-    ClapTrap clapB("ClapB");
+    FlagTrap flagA("FlagA");
+    FlagTrap flagB("FlagB");
 
-    clapA.attack("ClapB");
-    clapB.takeDamage(2);
-    clapB.beRepaired(5);
-    clapB.attack("ClapA");
-    clapA.takeDamage(0);
+    flagA.attack("FlagB");
+    flagB.takeDamage(20);
+    flagB.beRepaired(50);
+    flagB.attack("FlagA");
+    flagA.takeDamage(0);
+    flagA.highFivesGuys();
+    flagB.highFivesGuys();
 }
