@@ -1,13 +1,19 @@
-#include "ClapTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
-    ClapTrap clapA("ClapA");
-    ClapTrap clapB("ClapB");
+    DiamondTrap diamondA("DiamondA");
+    DiamondTrap diamondB("DiamondB");
 
-    clapA.attack("ClapB");
-    clapB.takeDamage(2);
-    clapB.beRepaired(5);
-    clapB.attack("ClapA");
-    clapA.takeDamage(0);
+    diamondA.attack("ClapB");
+    diamondB.takeDamage(20);
+    diamondB.beRepaired(5);
+    diamondB.attack("DiamondA");
+    diamondA.takeDamage(0);
+
+    diamondA.guardGate();
+    diamondB.highFivesGuys();
+
+    diamondA.whoAmI();
+    diamondB.whoAmI();
 }

@@ -15,8 +15,6 @@ class ScavTrap : public virtual ClapTrap {
         ~ScavTrap();
         void attack(const std::string& target);
         void guardGate();
-    private:
-        const unsigned int init_HP = 100;
 };
 
 #endif
