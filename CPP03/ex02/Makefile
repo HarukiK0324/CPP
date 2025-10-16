@@ -1,6 +1,6 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = FlagTrap
+NAME = FragTrap
 
 SRC_DIR = .
 OBJ_DIR = obj
@@ -8,7 +8,7 @@ OBJ_DIR = obj
 SRC = main.cpp \
 	  ClapTrap.cpp \
 	  ScavTrap.cpp \
-	  FlagTrap.cpp
+	  FragTrap.cpp
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 

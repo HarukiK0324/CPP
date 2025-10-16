@@ -1,14 +1,14 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FlagTrap(name), name(name)
+DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), name(name)
 {
-    this->hitPoints = FlagTrap::init_HP;
+    this->hitPoints = FragTrap::init_HP;
     this->energyPoints = ScavTrap::init_EP;
-    this->attackDamage = FlagTrap::init_AD;
+    this->attackDamage = FragTrap::init_AD;
     std::cout << "DiamondTrap " << name << " created with constructor" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& src) : ClapTrap(src), ScavTrap(src), FlagTrap(src), name(src.name)
+DiamondTrap::DiamondTrap(const DiamondTrap& src) : ClapTrap(src), ScavTrap(src), FragTrap(src), name(src.name)
 {
     this->hitPoints = src.hitPoints;
     this->energyPoints = src.energyPoints;

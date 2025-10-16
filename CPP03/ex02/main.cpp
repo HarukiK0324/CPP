@@ -1,15 +1,15 @@
-#include "FlagTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-    FlagTrap flagA("FlagA");
-    FlagTrap flagB("FlagB");
+    FragTrap fragA("FragA");
+    FragTrap fragB("FragB");
 
-    flagA.attack("FlagB");
-    flagB.takeDamage(20);
-    flagB.beRepaired(50);
-    flagB.attack("FlagA");
-    flagA.takeDamage(0);
-    flagA.highFivesGuys();
-    flagB.highFivesGuys();
+    fragA.attack("FragB");
+    fragB.takeDamage(20);
+    fragB.beRepaired(50);
+    fragB.attack("FragA");
+    fragA.takeDamage(0);
+    fragA.highFivesGuys();
+    fragB.highFivesGuys();
 }
