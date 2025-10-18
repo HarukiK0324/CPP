@@ -1,16 +1,15 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = Animal
+NAME = Brain
 
 SRC_DIR = .
 OBJ_DIR = obj
 
 SRC = main.cpp \
 	  Animal.cpp \
-	  Dog.cpp \
+	  Brain.cpp \
 	  Cat.cpp \
-	  WrongAnimal.cpp \
-	  WrongCat.cpp
+	  Dog.cpp \
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
