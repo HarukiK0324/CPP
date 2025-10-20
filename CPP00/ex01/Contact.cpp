@@ -22,7 +22,7 @@ void Contact::getInput(std::string &field, std::string prompt)
 
 void Contact::getNumberInput(std::string &field, std::string prompt)
 {
-	long	num;
+	char *err;
 
 	while (field.empty())
 	{
@@ -37,19 +37,12 @@ void Contact::getNumberInput(std::string &field, std::string prompt)
 			std::cout << "A saved contact can't have empty fields" << std::endl;
 			continue ;
 		}
-		try
-		{
-			num = std::atol(field.c_str());
-		}
-		catch (const std::invalid_argument &e)
+		std::strtol(field.c_str(), &err, 10);
+		if (err == field.c_str() || *err != '\0')
 		{
 			std::cout << "Invalid phone number format" << std::endl;
 			field.clear();
-		}
-		catch (const std::out_of_range &e)
-		{
-			std::cout << "Invalid phone number format" << std::endl;
-			field.clear();
+			continue ;
 		}
 	}
 }

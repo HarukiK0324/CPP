@@ -37,7 +37,8 @@ void PhoneBook::displayContacts()
 
 void PhoneBook::searchContact()
 {
-	int	index;
+	char *err;
+	long index = -1;
 
 	std::string input;
 	if (count == 0)
@@ -53,20 +54,14 @@ void PhoneBook::searchContact()
 		std::exit(0);
 		return ;
 	}
-	try
+	index = std::strtol(input.c_str(), &err, 10);
+	if (err == input.c_str() || *err != '\0')
 	{
-		index = std::atoi(input.c_str());
-	}
-	catch (const std::invalid_argument &e)
-	{
-		std::cout << "Invalid input." << std::endl;
+		std::cout << "Invalid index format" << std::endl;
+		input.clear();
 		return ;
 	}
-	catch (const std::out_of_range &e)
-	{
-		std::cout << "Invalid index" << std::endl;
-		return ;
-	}
+	
 	if (index < 0 || index >= count)
 	{
 		std::cout << "Invalid index" << std::endl;
