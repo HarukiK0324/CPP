@@ -33,7 +33,7 @@ int main(int argc, char **argv)
         std::cerr << "Error: could not open file " << argv[1] << std::endl;
         return 1;
     }
-    std::ofstream new_file(argv[1] + std::string(".replace"));
+    std::ofstream new_file((argv[1] + std::string(".replace")).c_str());
 
     if (!new_file.is_open())
     {
