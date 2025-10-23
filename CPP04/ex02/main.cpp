@@ -3,7 +3,7 @@
 
 int main()
 {
-    Animal *i = new Animal();
+    AAnimal *i = new AAnimal();
 
     return 0;
 }
