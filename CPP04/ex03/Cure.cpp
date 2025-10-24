@@ -27,6 +27,11 @@ Cure::~Cure()
     std::cout << "Cure destructor called" << std::endl;
 }
 
+std::string const & Cure::getType() const
+{
+    return _type;
+}
+
 AMateria* Cure::clone() const
 {
     return new Cure(*this);

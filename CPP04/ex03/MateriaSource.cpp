@@ -40,5 +40,26 @@ MateriaSource::~MateriaSource()
 
 void MateriaSource::learnMateria(AMateria* materia)
 {
-    
+    for (int i = 0; i < maxMaterias; i++)
+    {
+        if (this->Materias[i] == nullptr)
+        {
+            this->Materias[i] = materia;
+            return;
+        }
+    }
+    std::cerr << "MateriaSource inventory full, cannot learn more materias." << std::endl;
+}
+
+AMateria* MateriaSource::createMateria(std::string const & type)
+{
+    for(int i = 0;i < maxMaterias;i++)
+    {
+        if(this->Materias[i] && this->Materias[i]->getType() == type)
+        {
+            return this->Materias[i]->clone();
+        }
+    }
+    std::cerr << "MateriaSource inventory full, cannot learn more materias." << std::endl;
+    return nullptr;
 }

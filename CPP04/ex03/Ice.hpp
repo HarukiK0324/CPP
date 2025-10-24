@@ -12,7 +12,6 @@ class Ice : public AMateria
         Ice(const Ice &src);
         Ice &operator=(const Ice &src);
         ~Ice();
-
         std::string const & getType() const;
         AMateria* clone() const;
         void use(ICharacter& target);
