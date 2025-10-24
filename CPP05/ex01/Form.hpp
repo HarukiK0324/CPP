@@ -1,29 +1,30 @@
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+#define FORM_HPP
 
-#include <iostream>
-#include <string>
+#include "Bureaucrat.hpp"
 
-class Bureaucrat {
+class Form {
     private:
         const std::string _name;
-        int _grade;
+        bool _isSigned;
+        const int _signGrade;
+        const int _executeGrade;
         static const int _highestGrade = 1;
         static const int _lowestGrade = 150;
-        void setGrade(int grade);
     public:
-        Bureaucrat();
-        Bureaucrat(const std::string& name, int grade);
-        Bureaucrat(const Bureaucrat& src);
-        Bureaucrat& operator=(const Bureaucrat& src);
-        ~Bureaucrat();
+        Form();
+        Form(const std::string& name, int signGrade, int executeGrade);
+        Form(const Form& src);
+        Form& operator=(const Form& src);
+        ~Form();
 
         std::string getName() const;
-        int getGrade() const;
-        friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
+        bool isSigned() const;
+        int getSignGrade() const;
+        int getExecuteGrade() const;
+        friend std::ostream& operator<<(std::ostream& os, const Form& src);
 
-        void incrementGrade();
-        void decrementGrade();
+        void beSigned(const Bureaucrat& bureaucrat);
 
         class GradeTooHighException : public std::exception {
             private:
@@ -34,17 +35,15 @@ class Bureaucrat {
                     return _errmsg;
                 }
         };
-
         class GradeTooLowException : public std::exception {
             private:
                 const char* _errmsg;
             public:
-                GradeTooLowException(const char* msg) : _errmsg(msg) {}
+                GradeTooLowException(const char *msg) : _errmsg(msg) {}
                 const char* what() const throw() {
                     return _errmsg;
                 }
         };
 };
-
 
 #endif

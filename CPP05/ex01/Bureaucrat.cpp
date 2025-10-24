@@ -47,3 +47,15 @@ void Bureaucrat::incrementGrade() {
 void Bureaucrat::decrementGrade() {
     setGrade(_grade + 1);
 }
+
+void Bureaucrat::signForm(Form& form) {
+    try
+    {
+        form.beSigned(*this);
+        std::cout << this->getName() << " signed " << form.getName() << std::endl;
+    }
+    catch(const Form::GradeTooLowException& e)
+    {
+        std::cout << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+    }
+}
