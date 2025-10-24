@@ -8,12 +8,12 @@ class AAnimal {
     protected:
         std::string _type;
 
+    public:
         AAnimal();
         AAnimal(const AAnimal &src);
         AAnimal &operator=(const AAnimal &src);
-    public:
         virtual ~AAnimal();
-        virtual void makeSound() const;
+        virtual void makeSound() const = 0;
         virtual std::string getType() const;
 };
 

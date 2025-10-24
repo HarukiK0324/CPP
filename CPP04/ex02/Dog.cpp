@@ -19,6 +19,7 @@ Dog &Dog::operator=(const Dog &src)
     if (this != &src)
     {
         this->_type = src._type;
+        this->_brain = new Brain(*(src._brain));
     }
     return *this;
 }

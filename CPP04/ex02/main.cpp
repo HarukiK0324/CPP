@@ -4,6 +4,5 @@
 int main()
 {
     AAnimal *i = new AAnimal();
-
     return 0;
 }
