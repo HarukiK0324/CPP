@@ -1,7 +1,7 @@
 #include "Cure.hpp"
 #include "ICharacter.hpp"
 
-Cure::Cure() : AMateria("cure"), _type("cure")
+Cure::Cure() : AMateria("cure")
 {
     std::cout << "Cure default constructor called" <<  std::endl;
 }
@@ -29,7 +29,7 @@ Cure::~Cure()
 
 std::string const & Cure::getType() const
 {
-    return _type;
+    return AMateria::getType();
 }
 
 AMateria* Cure::clone() const

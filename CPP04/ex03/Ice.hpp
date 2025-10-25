@@ -5,8 +5,6 @@
 
 class Ice : public AMateria
 {
-    private:
-        const std::string _type;
     public:
         Ice();
         Ice(const Ice &src);

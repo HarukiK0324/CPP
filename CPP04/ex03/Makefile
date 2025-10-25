@@ -1,6 +1,6 @@
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = Brain
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+NAME = Materia
 
 SRC_DIR = .
 OBJ_DIR = obj
