@@ -1,33 +1,32 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 
 #include <iostream>
 #include <string>
 
-class Bureaucrat;
+class AForm;
 
-class Form {
+class Bureaucrat {
     private:
         const std::string _name;
-        bool _isSigned;
-        const int _signGrade;
-        const int _executeGrade;
+        int _grade;
         static const int _highestGrade = 1;
         static const int _lowestGrade = 150;
+        void setGrade(int grade);
     public:
-        Form();
-        Form(const std::string& name, int signGrade, int executeGrade);
-        Form(const Form& src);
-        Form& operator=(const Form& src);
-        ~Form();
+        Bureaucrat();
+        Bureaucrat(const std::string& name, int grade);
+        Bureaucrat(const Bureaucrat& src);
+        Bureaucrat& operator=(const Bureaucrat& src);
+        ~Bureaucrat();
 
         std::string getName() const;
-        bool isSigned() const;
-        int getSignGrade() const;
-        int getExecuteGrade() const;
-        friend std::ostream& operator<<(std::ostream& os, const Form& src);
-
-        void beSigned(const Bureaucrat& bureaucrat);
+        int getGrade() const;
+        friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
+        void incrementGrade();
+        void decrementGrade();
+        void signForm(class AForm& form);
+        void executeForm(AForm const & form);
 
         class GradeTooHighException : public std::exception {
             private:
@@ -38,15 +37,17 @@ class Form {
                     return _errmsg;
                 }
         };
+
         class GradeTooLowException : public std::exception {
             private:
                 const char* _errmsg;
             public:
-                GradeTooLowException(const char *msg) : _errmsg(msg) {}
+                GradeTooLowException(const char* msg) : _errmsg(msg) {}
                 const char* what() const throw() {
                     return _errmsg;
                 }
         };
 };
+
 
 #endif
