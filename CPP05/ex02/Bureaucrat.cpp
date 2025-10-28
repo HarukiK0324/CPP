@@ -59,12 +59,15 @@ void Bureaucrat::signForm(AForm& form) {
     {
         std::cout << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
     }
+    catch(const AForm::AlreadySignedException& e)
+    {
+        std::cout << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+    }
 }
 
 void Bureaucrat::executeForm(AForm const & form) {
     try {
         form.beExecuted(*this);
-        std::cout << this->getName() << " executed " << form.getName() << std::endl;
     } catch (const std::exception& e) {
         std::cout << this->getName() << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
     }

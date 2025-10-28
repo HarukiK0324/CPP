@@ -1,5 +1,4 @@
 #include "AForm.hpp"
-#include "Bureaucrat.hpp"
 
 AForm::AForm() : _name("Default"), _isSigned(false), _signGrade(150), _executeGrade(150) {}
 
@@ -50,17 +49,21 @@ std::ostream& operator<<(std::ostream& os, const AForm& src) {
 }
 
 void AForm::beSigned(const Bureaucrat& bureaucrat) {
-    if(bureaucrat.getGrade() <= _signGrade)
+    if(isSigned())
+    {
+        throw AlreadySignedException("form is already signed");
+    }
+    else if(bureaucrat.getGrade() <= _signGrade)
         _isSigned = true;
     else
         throw GradeTooLowException("grade is too low");
 }
 
-void beExecuted(Bureaucrat const & executor) {
-    if (!this->isSigned()) {
+void AForm::beExecuted(Bureaucrat const & executor) const {
+    if (!this->isSigned())
         throw NotSignedException("form is not signed");
-    }
-    if (executor.getGrade() > this->getExecuteGrade()) {
+    if (executor.getGrade() > this->getExecuteGrade())
         throw GradeTooLowException("executor's grade is too low to execute the form");
-    }
+    std::cout << executor.getName() << " executed " << this->getName() << std::endl;
+    this->execute(executor);
 }

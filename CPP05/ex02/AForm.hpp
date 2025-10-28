@@ -3,8 +3,7 @@
 
 #include <iostream>
 #include <string>
-
-class Bureaucrat;
+#include "Bureaucrat.hpp"
 
 class AForm {
     private:
@@ -28,7 +27,8 @@ class AForm {
         friend std::ostream& operator<<(std::ostream& os, const AForm& src);
 
         void beSigned(const Bureaucrat& bureaucrat);
-        void beExecuted(Bureaucrat const & executor);
+        void beExecuted(Bureaucrat const & executor) const;
+        virtual void execute(Bureaucrat const & executor) const = 0;
 
         class GradeTooHighException : public std::exception {
             private:
@@ -55,6 +55,16 @@ class AForm {
                 const char* _errmsg;
             public:
                 NotSignedException(const char *msg) : _errmsg(msg) {}
+                const char* what() const throw() {
+                    return _errmsg;
+                }
+        };
+
+        class AlreadySignedException : public std::exception {
+            private:
+                const char* _errmsg;
+            public:
+                AlreadySignedException(const char *msg) : _errmsg(msg) {}
                 const char* what() const throw() {
                     return _errmsg;
                 }

@@ -50,6 +50,10 @@ std::ostream& operator<<(std::ostream& os, const Form& src) {
 }
 
 void Form::beSigned(const Bureaucrat& bureaucrat) {
+    if(isSigned())
+    {
+        throw AlreadySignedException("form is already signed");
+    }
     if(bureaucrat.getGrade() <= _signGrade)
         _isSigned = true;
     else

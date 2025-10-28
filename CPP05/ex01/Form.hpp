@@ -47,6 +47,15 @@ class Form {
                     return _errmsg;
                 }
         };
+        class AlreadySignedException : public std::exception {
+            private:
+                const char* _errmsg;
+            public:
+                AlreadySignedException(const char *msg) : _errmsg(msg) {}
+                const char* what() const throw() {
+                    return _errmsg;
+                }
+        };
 };
 
 #endif

@@ -1,25 +1,34 @@
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main()
 {
-    Bureaucrat bob("Bob", 100);
-    Form taxForm("Tax Form", 100, 50);
-    Form applicationForm("Application Form", 50, 25);
-    try
-    {
-        Form permitForm("Permit Form", 180, 75);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << "unable to create form: " << e.what() << '\n';
-    }
+    srand(static_cast<unsigned int>(time(0)));
 
-    try {
-        bob.signForm(taxForm);
-    } catch (const std::exception& e) {
-        std::cout << e.what() << std::endl;
-    }
-    std::cout << bob << std::endl;
-    bob.signForm(applicationForm);
+    Bureaucrat bob("Bob", 1);
+    Bureaucrat alice("Alice", 50);
+    Bureaucrat charlie("Charlie", 150);
+
+    ShrubberyCreationForm shrubberyForm("Home");
+    RobotomyRequestForm robotomyForm("Marvin");
+    PresidentialPardonForm pardonForm("Arthur");
+
+    // Test ShrubberyCreationForm
+    alice.signForm(shrubberyForm);
+    alice.executeForm(shrubberyForm);
+
+    // Test RobotomyRequestForm
+    bob.signForm(robotomyForm);
+    bob.executeForm(robotomyForm);
+
+    // Test PresidentialPardonForm
+    bob.signForm(pardonForm);
+    bob.executeForm(pardonForm);
+
+    charlie.signForm(pardonForm);  // Should fail due to low grade
+    charlie.executeForm(pardonForm);  // Should fail due to low grade
+    return 0;
 }

@@ -1,11 +1,14 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
-NAME = Form
+NAME = AForm
 SRC_DIR = .
 OBJ_DIR = obj
 
-SRC = Bureaucrat.cpp \
-      Form.cpp \
+SRC = AForm.cpp \
+	  Bureaucrat.cpp \
+	  PresidentialPardonForm.cpp \
+	  RobotomyRequestForm.cpp \
+	  ShrubberyCreationForm.cpp \
 	  main.cpp
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
