@@ -18,12 +18,12 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
     const Point ac(c.getX().toFloat() - a.getX().toFloat(), c.getY().toFloat() - a.getY().toFloat());
     const Point ap(point.getX().toFloat() - a.getX().toFloat(), point.getY().toFloat() - a.getY().toFloat());
 
-    std::cout << "ab: (" << ab.getX() << ", " << ab.getY() << ")" << std::endl;
-    std::cout << "ac: (" << ac.getX() << ", " << ac.getY() << ")" << std::endl;
-    std::cout << "ap: (" << ap.getX() << ", " << ap.getY() << ")" << std::endl;
+    // std::cout << "ab: (" << ab.getX() << ", " << ab.getY() << ")" << std::endl;
+    // std::cout << "ac: (" << ac.getX() << ", " << ac.getY() << ")" << std::endl;
+    // std::cout << "ap: (" << ap.getX() << ", " << ap.getY() << ")" << std::endl;
 
     u = (ab.getX() * ac.getY() - ab.getY() * ac.getX()).toFloat();
-    std::cout << "u: " << u << std::endl;
+    // std::cout << "u: " << u << std::endl;
     if(u == 0)
         return false;
     s = (ap.getX().toFloat() * ac.getY().toFloat() - ap.getY().toFloat() * ac.getX().toFloat()) / u;
@@ -32,6 +32,6 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
     else
         t = (ap.getY().toFloat() - ab.getY().toFloat() * s) / ac.getY().toFloat();
 
-    std::cout << "s: " << s << ", t: " << t << ", u: " << u << std::endl;
+    // std::cout << "s: " << s << ", t: " << t << ", u: " << u << std::endl;
     return ((s > 0) && (t > 0) && (s + t < 1.0f));
 }
