@@ -41,16 +41,19 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    std::string s;
+    std::string s = "";
+    std::string newline;
 
-    while(std::getline(file, s))
+    while(std::getline(file, newline))
     {
-        s = ft_replace(s, argv[2], argv[3]);
-        new_file << s;
+        s += newline;
         if(!file.eof())
-            new_file << std::endl;
+            s += "\n";
     }
     
+    s = ft_replace(s, argv[2], argv[3]);
+    new_file << s;
+
     if(file.fail() && !file.eof())
     {
         std::cerr << "Error: could not read file " << argv[1] << std::endl;
