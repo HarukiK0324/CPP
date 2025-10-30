@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 {
     if(argc != 4)
     {
-        std::cerr << "Usage: ./replace <filename> <s1> <s2>" << std::endl;
+        std::cerr << "Usage: ./ft_replace <filename> <s1> <s2>" << std::endl;
         return 1;
     }
     std::ifstream file(argv[1]);
