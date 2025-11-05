@@ -8,11 +8,9 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
     std::cout << "FragTrap " << name << " created with constructor" << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap& src) : ClapTrap(src.name)
+FragTrap::FragTrap(const FragTrap& src) : ClapTrap(src)
 {
-    this->hitPoints = src.hitPoints;
-    this->energyPoints = src.energyPoints;
-    this->attackDamage = src.attackDamage;
+    *this = src;
     std::cout << "FragTrap " << this->name << " created with copy constructor" << std::endl;
 }
 
@@ -20,7 +18,7 @@ FragTrap& FragTrap::operator=(const FragTrap& src)
 {
     if (this != &src)
     {
-        this->name = src.name;
+        ClapTrap::operator=(src);
         this->hitPoints = src.hitPoints;
         this->energyPoints = src.energyPoints;
         this->attackDamage = src.attackDamage;

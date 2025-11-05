@@ -10,9 +10,7 @@ DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name"
 
 DiamondTrap::DiamondTrap(const DiamondTrap& src) : ClapTrap(src), ScavTrap(src), FragTrap(src), name(src.name)
 {
-    this->hitPoints = src.hitPoints;
-    this->energyPoints = src.energyPoints;
-    this->attackDamage = src.attackDamage;
+    *this = src;
     std::cout << "DiamondTrap " << name << " created with copy constructor" << std::endl;
 }
 
@@ -20,7 +18,9 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& src)
 {
     if (this != &src)
     {
-        this->name = src.name;
+        FragTrap::operator=(src);
+        ScavTrap::operator=(src);
+        ClapTrap::operator=(src);
         this->hitPoints = src.hitPoints;
         this->energyPoints = src.energyPoints;
         this->attackDamage = src.attackDamage;
@@ -36,7 +36,15 @@ DiamondTrap::~DiamondTrap()
 
 void DiamondTrap::attack(const std::string& target)
 {
-    ScavTrap::attack(target);
+    if (this->hitPoints > 0 && this->energyPoints > 0)
+    {
+        this->energyPoints--;
+        std::cout << "FragTrap " << this->name << " attacks " << target << " with " << this->attackDamage << " points of damage!" << std::endl;
+    }
+    else if (this->hitPoints == 0)
+        std::cout << "FragTrap " << this->name << " is out of hit points!" << std::endl;
+    else
+        std::cout << "FragTrap " << this->name << " is out of energy points!" << std::endl;
 }
 
 void DiamondTrap::whoAmI()

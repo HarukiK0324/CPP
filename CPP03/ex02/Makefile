@@ -7,7 +7,6 @@ OBJ_DIR = obj
 
 SRC = main.cpp \
 	  ClapTrap.cpp \
-	  ScavTrap.cpp \
 	  FragTrap.cpp
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
