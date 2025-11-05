@@ -18,12 +18,10 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& src)
 {
     if (this != &src)
     {
+        this->name = src.name;
         FragTrap::operator=(src);
         ScavTrap::operator=(src);
         ClapTrap::operator=(src);
-        this->hitPoints = src.hitPoints;
-        this->energyPoints = src.energyPoints;
-        this->attackDamage = src.attackDamage;
     }
     std::cout << "DiamondTrap " << name << " created with copy assignment operator" << std::endl;
     return *this;
@@ -39,12 +37,12 @@ void DiamondTrap::attack(const std::string& target)
     if (this->hitPoints > 0 && this->energyPoints > 0)
     {
         this->energyPoints--;
-        std::cout << "FragTrap " << this->name << " attacks " << target << " with " << this->attackDamage << " points of damage!" << std::endl;
+        std::cout << "DiamondTrap " << this->name << " attacks " << target << " with " << this->attackDamage << " points of damage!" << std::endl;
     }
     else if (this->hitPoints == 0)
-        std::cout << "FragTrap " << this->name << " is out of hit points!" << std::endl;
+        std::cout << "DiamondTrap " << this->name << " is out of hit points!" << std::endl;
     else
-        std::cout << "FragTrap " << this->name << " is out of energy points!" << std::endl;
+        std::cout << "DiamondTrap " << this->name << " is out of energy points!" << std::endl;
 }
 
 void DiamondTrap::whoAmI()

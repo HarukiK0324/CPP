@@ -10,7 +10,6 @@ ScavTrap::ScavTrap( const std::string& name) : ClapTrap(name)
 
 ScavTrap::ScavTrap( const ScavTrap& src ) : ClapTrap(src)
 {
-    *this = src;
     std::cout << "ScavTrap " << this->name << " created with copy constructor" << std::endl;
 }
 
@@ -19,9 +18,6 @@ ScavTrap& ScavTrap::operator=( const ScavTrap& src )
     if (this != &src)
     {
         ClapTrap::operator=(src);
-        this->hitPoints = src.hitPoints;
-        this->energyPoints = src.energyPoints;
-        this->attackDamage = src.attackDamage;
     }
     std::cout << "ScavTrap " << this->name << " created with copy assignment operator" << std::endl;
     return *this;
