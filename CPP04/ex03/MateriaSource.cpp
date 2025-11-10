@@ -4,7 +4,7 @@
 MateriaSource::MateriaSource()
 {
     for (int i = 0; i < maxMaterias; i++)
-        this->Materias[i] = nullptr;
+        this->Materias[i] = 0;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &src)
@@ -23,7 +23,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &src)
             if (src.Materias[i])
                 this->Materias[i] = src.Materias[i]->clone();
             else
-                this->Materias[i] = nullptr;
+                this->Materias[i] = 0;
         }
     }
     return *this;
@@ -42,7 +42,7 @@ void MateriaSource::learnMateria(AMateria* materia)
 {
     for (int i = 0; i < maxMaterias; i++)
     {
-        if (this->Materias[i] == nullptr)
+        if (!this->Materias[i])
         {
             this->Materias[i] = materia;
             return;
@@ -61,5 +61,5 @@ AMateria* MateriaSource::createMateria(std::string const & type)
         }
     }
     std::cerr << "MateriaSource inventory full, cannot learn more materias." << std::endl;
-    return nullptr;
+    return 0;
 }

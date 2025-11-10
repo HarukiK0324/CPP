@@ -4,13 +4,13 @@
 Character::Character() : _name("Default")
 {
     for (int i = 0;i < maxInventory;i++)
-        this->_inventory[i] = nullptr;
+        this->_inventory[i] = 0;
 }
 
 Character::Character(std::string name) : _name(name)
 {
     for (int i = 0;i < maxInventory;i++)
-        this->_inventory[i] = nullptr;
+        this->_inventory[i] = 0;
 }
 
 Character::Character(const Character &src) : _name(src._name)
@@ -20,7 +20,7 @@ Character::Character(const Character &src) : _name(src._name)
         if (src._inventory[i])
             this->_inventory[i] = src._inventory[i]->clone();
         else
-            this->_inventory[i] = nullptr;
+            this->_inventory[i] = 0;
     }
 }
 
@@ -36,7 +36,7 @@ Character &Character::operator=(const Character &src)
             if (src._inventory[i])
                 this->_inventory[i] = src._inventory[i]->clone();
             else
-                this->_inventory[i] = nullptr;
+                this->_inventory[i] = 0;
         }
     }
     return *this;
@@ -81,7 +81,7 @@ void Character::unequip(int idx)
         std::cerr << "No materia to unequip at this index." << std::endl;
         return;
     }
-    this->_inventory[idx] = nullptr;
+    this->_inventory[idx] = 0;
 }
 void Character::use(int idx, ICharacter& target)
 {
