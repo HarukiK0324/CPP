@@ -6,7 +6,7 @@ Dog::Dog() : Animal()
     this->type = "Dog";
 }
 
-Dog::Dog(const Dog &src) 
+Dog::Dog(const Dog &src) : Animal(src)
 {
     std::cout << "Dog copy constructor called" << std::endl;
     *this = src;
@@ -17,7 +17,7 @@ Dog &Dog::operator=(const Dog &src)
     std::cout << "Dog assignment operator called" << std::endl;
     if (this != &src)
     {
-        this->type = src.type;
+        Animal::operator=(src);
     }
     return *this;
 }

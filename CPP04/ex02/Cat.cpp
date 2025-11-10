@@ -7,7 +7,7 @@ Cat::Cat()
     this->_type = "Cat";
 }
 
-Cat::Cat(const Cat &src)
+Cat::Cat(const Cat &src) : AAnimal(src)
 {
     std::cout << "Cat copy constructor called" << std::endl;
     *this = src;
@@ -18,7 +18,7 @@ Cat &Cat::operator=(const Cat &src)
     std::cout << "Cat assignment operator called" << std::endl;
     if (this != &src)
     {
-        this->_type = src._type;
+        AAnimal::operator=(src);
         this->_brain = new Brain(*(src._brain));
     }
     return *this;
