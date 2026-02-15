@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 
+#define highestGrade 1
+#define lowestGrade 150
 class Bureaucrat;
 
 class Form {
@@ -12,8 +14,8 @@ class Form {
         bool _isSigned;
         const int _signGrade;
         const int _executeGrade;
-        static const int _highestGrade = 1;
-        static const int _lowestGrade = 150;
+        static const int _highestGrade = highestGrade;
+        static const int _lowestGrade = lowestGrade;
     public:
         Form();
         Form(const std::string& name, int signGrade, int executeGrade);

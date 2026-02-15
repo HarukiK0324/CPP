@@ -20,10 +20,10 @@ Bureaucrat::~Bureaucrat() {}
 
 void Bureaucrat::setGrade(int grade) {
     if (grade < _highestGrade) {
-        throw GradeTooHighException("Grade is too high");
+        throw GradeTooHighException("grade is too high");
     }
     else if (grade > _lowestGrade) {
-        throw GradeTooLowException("Grade is too low");
+        throw GradeTooLowException("grade is too low");
     }
     this->_grade = grade;
 }

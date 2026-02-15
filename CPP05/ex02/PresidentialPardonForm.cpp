@@ -1,10 +1,10 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm() 
-    : AForm("Presidential Pardon Form", requiredSignGrade, requiredExecuteGrade), _target("Default") {}
+    : AForm("Presidential Pardon Form", _requiredSignGrade, _requiredExecuteGrade), _target("Default") {}
 
 PresidentialPardonForm::PresidentialPardonForm(std::string const& target) 
-    : AForm("Presidential Pardon Form", requiredSignGrade, requiredExecuteGrade), _target(target) {}
+    : AForm("Presidential Pardon Form", _requiredSignGrade, _requiredExecuteGrade), _target(target) {}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src)
     : AForm(src), _target(src._target) {}

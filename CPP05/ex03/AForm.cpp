@@ -5,10 +5,10 @@ AForm::AForm() : _name("Default"), _isSigned(false), _signGrade(150), _executeGr
 AForm::AForm(const std::string& name, int signGrade, int executeGrade)
     : _name(name), _isSigned(false), _signGrade(signGrade), _executeGrade(executeGrade) {
     if (signGrade < _highestGrade || executeGrade < _highestGrade) {
-        throw GradeTooHighException("given grade is too high");
+        throw GradeTooHighException("grade is too high");
     }
     if (signGrade > _lowestGrade || executeGrade > _lowestGrade) {
-        throw GradeTooLowException("given grade is too low");
+        throw GradeTooLowException("grade is too low");
     }
 }
 

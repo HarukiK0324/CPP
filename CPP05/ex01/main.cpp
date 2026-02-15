@@ -12,7 +12,7 @@ int main()
     }
     catch(const std::exception& e)
     {
-        std::cerr << "unable to create form: " << e.what() << '\n';
+        std::cerr << "Unable to create form: " << e.what() << '\n';
     }
 
     try {
@@ -22,4 +22,5 @@ int main()
     }
     std::cout << bob << std::endl;
     bob.signForm(applicationForm);
+    bob.signForm(taxForm);
 }

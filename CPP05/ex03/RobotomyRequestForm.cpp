@@ -1,10 +1,10 @@
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm() 
-    : AForm("Robotomy Request Form", requiredSignGrade, requiredExecuteGrade), _target("Default") {}
+    : AForm("Robotomy Request Form", _requiredSignGrade, _requiredExecuteGrade), _target("Default") {}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string const& target) 
-    : AForm("Robotomy Request Form", requiredSignGrade, requiredExecuteGrade), _target(target) {}
+    : AForm("Robotomy Request Form", _requiredSignGrade, _requiredExecuteGrade), _target(target) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src)
     : AForm(src), _target(src._target) {}

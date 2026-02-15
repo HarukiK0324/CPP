@@ -5,14 +5,16 @@
 #include <string>
 #include "Bureaucrat.hpp"
 
+#define highestGrade 1
+#define lowestGrade 150
 class AForm {
     private:
         const std::string _name;
         bool _isSigned;
         const int _signGrade;
         const int _executeGrade;
-        static const int _highestGrade = 1;
-        static const int _lowestGrade = 150;
+        static const int _highestGrade = highestGrade;
+        static const int _lowestGrade = lowestGrade;
     public:
         AForm();
         AForm(const std::string& name, int signGrade, int executeGrade);

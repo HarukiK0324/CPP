@@ -6,10 +6,10 @@ Form::Form() : _name("Default"), _isSigned(false), _signGrade(150), _executeGrad
 Form::Form(const std::string& name, int signGrade, int executeGrade)
     : _name(name), _isSigned(false), _signGrade(signGrade), _executeGrade(executeGrade) {
     if (signGrade < _highestGrade || executeGrade < _highestGrade) {
-        throw GradeTooHighException("given grade is too high");
+        throw GradeTooHighException("grade is too high");
     }
     if (signGrade > _lowestGrade || executeGrade > _lowestGrade) {
-        throw GradeTooLowException("given grade is too low");
+        throw GradeTooLowException("grade is too low");
     }
 }
 
@@ -54,7 +54,7 @@ void Form::beSigned(const Bureaucrat& bureaucrat) {
     {
         throw AlreadySignedException("form is already signed");
     }
-    if(bureaucrat.getGrade() <= _signGrade)
+    else if(bureaucrat.getGrade() <= _signGrade)
         _isSigned = true;
     else
         throw GradeTooLowException("grade is too low");

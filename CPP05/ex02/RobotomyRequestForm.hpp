@@ -6,10 +6,15 @@
 
 class RobotomyRequestForm : public AForm {
     private:
+        enum Grades {
+                REQUIRED_SIGN_GRADE = 72,
+                REQUIRED_EXECUTE_GRADE = 45
+            };
+
         std::string _target;
 
-        static const int requiredSignGrade = 72;
-        static const int requiredExecuteGrade = 45;
+        static const int _requiredSignGrade = REQUIRED_SIGN_GRADE;
+        static const int _requiredExecuteGrade = REQUIRED_EXECUTE_GRADE;
     public:
         RobotomyRequestForm();
         RobotomyRequestForm(const std::string& target);
