@@ -6,20 +6,20 @@
 
 template <typename T> class Array {
     private:
-        T* array;
-        std::size_t size;
+        T* _array;
+        std::size_t _size;
     public:
-        Array() : size(0){
+        Array() : _size(0){
             std::cout << "Default constructor called" << std::endl;
-            array = new T[0];
+            _array = new T[0];
         }
 
-        Array(unsigned int n) : size(n) {
+        Array(unsigned int n) : _size(n) {
             std::cout << "Parameterized constructor called" << std::endl;
-            array = new T[n];
+            _array = new T[_size]();
         }
 
-        Array(const Array& src) : size(src.size) {
+        Array(const Array& src) : _array(NULL), _size(src._size) {
             std::cout << "Copy constructor called" << std::endl;
             *this = src;
         }
@@ -27,11 +27,11 @@ template <typename T> class Array {
         Array& operator=(const Array& src) {
             std::cout << "Assignment operator called" << std::endl;
             if (this != &src) {
-                delete[] array;
-                size = src.size;
-                array = new T[size];
-                for (std::size_t i = 0; i < size; i++) {
-                    array[i] = src.array[i];
+                delete[] _array;
+                _size = src._size;
+                _array = new T[_size];
+                for (std::size_t i = 0; i < _size; i++) {
+                    _array[i] = src._array[i];
                 }
             }
             return *this;
@@ -39,16 +39,23 @@ template <typename T> class Array {
 
         ~Array() {
             std::cout << "Destructor called" << std::endl;
-            delete[] array;
+            delete[] _array;
         }
 
         T& operator[](std::size_t index) {
-            if (index >= size || this->array == nullptr) {
+            if (index >= _size || this->_array == NULL) {
                 throw IndexOutOfBoundsException();
             }
-            return array[index];
+            return _array[index];
         }
 
+        T& operator[](std::size_t index) const {
+            if (index >= _size || this->_array == NULL) {
+                throw IndexOutOfBoundsException();
+            }
+            return _array[index];
+        }
+        
         class IndexOutOfBoundsException : public std::exception {
             public:
                 virtual const char* what() const throw() {
@@ -56,8 +63,8 @@ template <typename T> class Array {
                 }
         };
 
-        std::size_t getSize() const {
-            return size;
+        std::size_t size() const {
+            return _size;
         }
 };
 

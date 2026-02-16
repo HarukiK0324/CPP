@@ -3,11 +3,11 @@
 int main()
 {
     Array<int> intArray(5);
-    for (std::size_t i = 0; i < intArray.getSize(); i++) {
+    for (std::size_t i = 0; i < intArray.size(); i++) {
         intArray[i] = i * 10;
     }
 
-    for (std::size_t i = 0; i < intArray.getSize(); i++) {
+    for (std::size_t i = 0; i < intArray.size(); i++) {
         std::cout << intArray[i] << " ";
     }
     std::cout << std::endl;

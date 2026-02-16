@@ -3,15 +3,7 @@
 
 #include <cstddef>
 
-template <typename T> void iter(T *array, const std::size_t length, void (*func)(T&))
-{
-    for(std::size_t i = 0;i < length;i++)
-    {
-        func(array[i]);
-    }
-}
-
-template <typename T> void iter(T *array, const std::size_t length, void (*func)(const T&))
+template <typename T, typename Func> void iter(T *array, const std::size_t length, Func func)
 {
     for(std::size_t i = 0;i < length;i++)
     {
