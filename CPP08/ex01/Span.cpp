@@ -1,0 +1,51 @@
+#include "Span.hpp"
+
+void Span::addNumber(int number) {
+    if(_numbers.size() >= _N)
+        throw std::runtime_error("Span is full");
+    _numbers.push_back(number);
+}
+
+void Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
+    if(_numbers.size() + std::distance(begin, end) > _N)
+        throw std::runtime_error("Span is full");
+    _numbers.insert(_numbers.end(), begin, end);
+}
+
+unsigned int Span::shortestSpan() {
+    if(_numbers.size() < 2)
+        throw std::runtime_error("Not enough numbers");
+    std::vector<int> sorted(_numbers);
+    std::sort(sorted.begin(), sorted.end());
+    unsigned int minSpan = UINT_MAX;
+    for(size_t i = 1; i < sorted.size(); ++i) {
+        unsigned int span = sorted[i] - sorted[i - 1];
+        if(span < minSpan)
+            minSpan = span;
+    }
+    return minSpan;
+}
+
+unsigned int Span::longestSpan() {
+    if(_numbers.size() < 2)
+        throw std::runtime_error("Not enough numbers");
+    int min = *std::min_element(_numbers.begin(), _numbers.end());
+    int max = *std::max_element(_numbers.begin(), _numbers.end());
+    return max - min;
+}
+
+Span::Span() : _N(0) {}
+
+Span::Span(unsigned int N) : _N(N) {}
+
+Span::Span(const Span& other) : _N(other._N), _numbers(other._numbers) {}
+
+Span& Span::operator=(const Span& other) {
+    if (this != &other) {
+        _N = other._N;
+        _numbers = other._numbers;
+    }
+    return *this;
+}
+
+Span::~Span() {}
