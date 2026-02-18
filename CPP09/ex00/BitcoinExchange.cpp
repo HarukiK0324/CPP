@@ -39,7 +39,7 @@ void BitcoinExchange::processFile(const std::string& filename)
     }
     std::ifstream file(filename);
     if (!file.is_open()) {
-        std::cerr << "Error: could not open file." << filename << std::endl;
+        std::cerr << "Error: could not open file." << std::endl;
         return;
     }
     std::map<std::string, float> exchangeRates;
