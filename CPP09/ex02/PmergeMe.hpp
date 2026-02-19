@@ -6,7 +6,7 @@
 #include <map>
 #include <vector>
 
-#define TK(k) ((1 << k) + 2 * (k%2 == 0) - 2 * (k%2 == 1))/3
+#define TK(k) ((1 << (k + 1)) - 2 * ((k%2 == 0) ? 1 : -1))/3
 
 class PmergeMe {
     public:
@@ -45,25 +45,26 @@ class PmergeMe {
             }
             if(size%2 == 1)
                 b.push_back(con[size - 1]);
-            int k = 1,tk = std::min(2, (int)b.size() - 1);
+            int k = 2,tk = std::min(2, (int)b.size() - 1);
             a.insert(a.begin(), b[0]);
             b.erase(b.begin());
             while(!b.empty())
             {
+                size_t bound = std::min((1 << k) - 1, (int)a.size());
                 while(tk > 0)
                 {
-                    this->binary_insert(a, b[tk - 1]);
+                    this->binary_insert(a, b[tk - 1], bound);
                     b.erase(b.begin() + tk - 1);
                     tk--;
                 }
-                k++;
                 tk = std::min(TK(k), (int)b.size());
+                k++;
             }
             return a;
         }
         
-        template <typename T> void binary_insert(T& container, int value) {
-            typename T::iterator it = std::lower_bound(container.begin(), container.end(), value);
+        template <typename T> void binary_insert(T& container, int value, size_t bound) {
+            typename T::iterator it = std::lower_bound(container.begin(), container.begin() + bound, value);
             container.insert(it, value);
         }
 };
