@@ -38,5 +38,6 @@ int main()
 
     charlie.signForm(pardonForm);  // Should fail due to low grade
     charlie.executeForm(pardonForm);  // Should fail due to low grade
+    delete rrf;
     return 0;
 }
