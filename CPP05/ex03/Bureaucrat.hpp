@@ -22,11 +22,10 @@ class Bureaucrat {
 
         std::string getName() const;
         int getGrade() const;
-        friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
         void incrementGrade();
         void decrementGrade();
         void signForm(class AForm& form);
-        void executeForm(AForm const & form);
+        void executeForm(AForm const & form) const;
 
         class GradeTooHighException : public std::exception {
             private:
@@ -49,5 +48,6 @@ class Bureaucrat {
         };
 };
 
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 #endif

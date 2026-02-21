@@ -23,7 +23,6 @@ class Bureaucrat {
 
         std::string getName() const;
         int getGrade() const;
-        friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
         void incrementGrade();
         void decrementGrade();
@@ -49,5 +48,6 @@ class Bureaucrat {
         };
 };
 
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 #endif
