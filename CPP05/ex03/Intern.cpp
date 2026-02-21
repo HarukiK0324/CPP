@@ -29,7 +29,7 @@ AForm* createShrubbery(std::string const& target) {
 }
 
 AForm* Intern::makeForm(std::string const& name, std::string const& target) {
-    AForm* form = nullptr;
+    AForm* form = NULL;
     std::string formNames[] = {
         "presidential pardon",
         "robotomy request",
@@ -49,5 +49,5 @@ AForm* Intern::makeForm(std::string const& name, std::string const& target) {
         }
     }
     std::cout << "Intern could not find the form: " << name << std::endl;
-    return nullptr;
+    return NULL;
 }
