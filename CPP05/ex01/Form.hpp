@@ -27,7 +27,6 @@ class Form {
         bool isSigned() const;
         int getSignGrade() const;
         int getExecuteGrade() const;
-        friend std::ostream& operator<<(std::ostream& os, const Form& src);
 
         void beSigned(const Bureaucrat& bureaucrat);
 
@@ -59,5 +58,7 @@ class Form {
                 }
         };
 };
+
+std::ostream& operator<<(std::ostream& os, const Form& src);
 
 #endif
