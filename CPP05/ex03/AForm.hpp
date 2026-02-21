@@ -7,6 +7,7 @@
 
 #define highestGrade 1
 #define lowestGrade 150
+
 class AForm {
     private:
         const std::string _name;

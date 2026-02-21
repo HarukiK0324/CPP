@@ -4,14 +4,16 @@
 #include <iostream>
 #include <string>
 
+#define highestGrade 1
+#define lowestGrade 150
 class AForm;
 
 class Bureaucrat {
     private:
         const std::string _name;
         int _grade;
-        static const int _highestGrade = 1;
-        static const int _lowestGrade = 150;
+        static const int _highestGrade = highestGrade;
+        static const int _lowestGrade = lowestGrade;
         void setGrade(int grade);
     public:
         Bureaucrat();
