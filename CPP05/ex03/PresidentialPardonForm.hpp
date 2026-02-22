@@ -5,14 +5,10 @@
 
 class PresidentialPardonForm : public AForm {
     private:
-        enum Grades {
-                REQUIRED_SIGN_GRADE = 25,
-                REQUIRED_EXECUTE_GRADE = 5
-            };
         std::string _target;
-
-        static const int _requiredSignGrade = REQUIRED_SIGN_GRADE;
-        static const int _requiredExecuteGrade = REQUIRED_EXECUTE_GRADE;
+        
+        static const int _requiredSignGrade = 25;
+        static const int _requiredExecuteGrade = 5;
     public:
         PresidentialPardonForm();
         PresidentialPardonForm(const std::string& target);

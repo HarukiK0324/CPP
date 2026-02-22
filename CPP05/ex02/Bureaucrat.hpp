@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <exception>
 
 #define highestGrade 1
 #define lowestGrade 150
