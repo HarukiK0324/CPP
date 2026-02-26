@@ -2,6 +2,8 @@
 #include "B.hpp"
 #include "C.hpp"
 
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 
 
@@ -40,19 +42,19 @@ void identify(Base& p)
         std::cout << "A" << std::endl;
         return;
     }
-    catch (std::bad_cast&) {}
+    catch (...) {}
     try {
         (void)dynamic_cast<B&>(p);
         std::cout << "B" << std::endl;
         return;
     }
-    catch (std::bad_cast&) {}
+    catch (...) {}
     try {
         (void)dynamic_cast<C&>(p);
         std::cout << "C" << std::endl;
         return;
     }
-    catch (std::bad_cast&) {}
+    catch (...) {}
     std::cout << "Unknown type" << std::endl;
 }
 
