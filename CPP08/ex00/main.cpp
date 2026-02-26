@@ -1,5 +1,5 @@
 #include "easyfind.hpp"
-#include <stdio.h>
+#include <iostream>
 #include <vector>
 
 int main()
@@ -9,12 +9,12 @@ int main()
         v.push_back(i);
     std::vector<int>::iterator it = easyfind(v, 5);
     if (it != v.end())
-        printf("Found: %d\n", *it);
+        std::cout << "Found: " << *it << std::endl;
     else
-        printf("Not found\n");
+        std::cout << "Not Found" << std::endl;
     it = easyfind(v, 11);
     if (it != v.end())
-        printf("Found: %d\n", *it);
+        std::cout << "Found: " << *it << std::endl;
     else
-        printf("Not found\n");
+        std::cout << "Not Found" << std::endl;
 }
