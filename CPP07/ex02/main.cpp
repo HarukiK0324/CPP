@@ -18,5 +18,10 @@ int main()
         std::cerr << e.what() << std::endl;
     }
 
+    Array<std::string> strArray(2);
+    strArray[0] = "Hello";
+    strArray[1] = "Wold";
+    std::cout << strArray[0] << " " << strArray[1] << std::endl;
+
     return 0;
 }

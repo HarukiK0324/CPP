@@ -3,6 +3,7 @@
 
 #include <cstddef>
 #include <iostream>
+#include <exception>
 
 template <typename T> class Array {
     private:
@@ -49,7 +50,7 @@ template <typename T> class Array {
             return _array[index];
         }
 
-        T& operator[](std::size_t index) const {
+        const T& operator[](std::size_t index) const {
             if (index >= _size || this->_array == NULL) {
                 throw IndexOutOfBoundsException();
             }

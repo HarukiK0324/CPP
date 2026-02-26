@@ -2,6 +2,7 @@
 #include <iostream>
 
 void printInt(int &x) { std::cout << x << " "; }
+void printConstInt(const int &x) { std::cout << x << " "; }
 void printString(const std::string &s) { std::cout << s << " "; }
 void printDouble(double &d) { std::cout << d << " "; }
 
@@ -16,6 +17,10 @@ int main() {
 
     double dblArr[] = {1.1, 2.2, 3.3};
     iter(dblArr, 3, printDouble); // Output: 1.1 2.2 3.3
+    std::cout << std::endl;
+
+    const int constArr[] = {1, 2, 3};
+    iter(constArr, 3, printConstInt);
     std::cout << std::endl;
     return 0;
 }
