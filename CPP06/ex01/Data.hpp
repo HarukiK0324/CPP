@@ -7,15 +7,11 @@ class Data {
         std::string name;
         int id;
         
-        Data() : name(""), id(0) {}
-        Data(const std::string& name, int id) : name(name), id(id) {}
-        Data(const Data& src) : name(src.name), id(src.id) {}
-        Data& operator=(const Data& src) {   
-            name = src.name;
-            id = src.id;
-            return *this;
-        }
-        ~Data() {}
+        Data();
+        Data(const std::string& name, int id);
+        Data(const Data& src);
+        Data& operator=(const Data& src);
+        ~Data();
 };
 
 #endif

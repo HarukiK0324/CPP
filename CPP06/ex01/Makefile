@@ -5,6 +5,7 @@ SRC_DIR = .
 OBJ_DIR = obj
 
 SRC = Serializer.cpp \
+	  Data.cpp \
 	  main.cpp
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)

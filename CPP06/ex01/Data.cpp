@@ -6,9 +6,11 @@ Data::Data(const std::string& name, int id) : name(name), id(id) {}
 
 Data::Data(const Data& src) : name(src.name), id(src.id) {}
 
-Data& Data::operator=(const Data& src) {   
-    name = src.name;
-    id = src.id;
+Data& Data::operator=(const Data& src) {
+    if(this != &src) {
+        name = src.name;
+        id = src.id;
+    }
     return *this;
 }
 
