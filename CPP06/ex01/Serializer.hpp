@@ -3,6 +3,8 @@
 
 #include "Data.hpp"
 
+#include <stdint.h>
+
 class Serializer {
     public:
         static uintptr_t serialize(Data* ptr);
