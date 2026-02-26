@@ -1,6 +1,11 @@
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
 
+#include <cstdlib>
+#include <cmath>
+#include <climits>
+#include <cerrno>
+#include <limits>
 #include <iostream>
 #include <string>
 
