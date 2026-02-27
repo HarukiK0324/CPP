@@ -19,7 +19,7 @@ unsigned int Span::shortestSpan() {
     std::sort(sorted.begin(), sorted.end());
     unsigned int minSpan = UINT_MAX;
     for(size_t i = 1; i < sorted.size(); ++i) {
-        unsigned int span = sorted[i] - sorted[i - 1];
+        unsigned int span = static_cast<unsigned int>(sorted[i]) - static_cast<unsigned int>(sorted[i - 1]);
         if(span < minSpan)
             minSpan = span;
     }
@@ -31,7 +31,7 @@ unsigned int Span::longestSpan() {
         throw std::runtime_error("Not enough numbers");
     int min = *std::min_element(_numbers.begin(), _numbers.end());
     int max = *std::max_element(_numbers.begin(), _numbers.end());
-    return max - min;
+    return static_cast<unsigned int>(max) - static_cast<unsigned int>(min);
 }
 
 Span::Span() : _N(0) {}
