@@ -9,7 +9,7 @@
 class Span {
     public:
         void addNumber(int number);
-        void addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+        template <typename iter> void addNumbers(iter begin, iter end);
         unsigned int shortestSpan();
         unsigned int longestSpan();
 

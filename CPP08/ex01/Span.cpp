@@ -6,7 +6,7 @@ void Span::addNumber(int number) {
     _numbers.push_back(number);
 }
 
-void Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
+template <typename iter> void Span::addNumbers(iter begin, iter end) {
     if(_numbers.size() + std::distance(begin, end) > _N)
         throw std::runtime_error("Span is full");
     _numbers.insert(_numbers.end(), begin, end);

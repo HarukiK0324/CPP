@@ -11,5 +11,11 @@ int main()
     sp.addNumber(11);
     std::cout << sp.shortestSpan() << std::endl;
     std::cout << sp.longestSpan() << std::endl;
+    std::vector<int> s;
+    int rand = 1;
+    for(int i = 0;i < 10000;i++){
+        s.push_back(rand *= rand * 5);
+    }
+    sp.addNumbers(s.begin(),s.end());
     return 0;
 }
