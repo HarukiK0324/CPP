@@ -6,12 +6,6 @@ void Span::addNumber(int number) {
     _numbers.push_back(number);
 }
 
-template <typename iter> void Span::addNumbers(iter begin, iter end) {
-    if(_numbers.size() + std::distance(begin, end) > _N)
-        throw std::runtime_error("Span is full");
-    _numbers.insert(_numbers.end(), begin, end);
-}
-
 unsigned int Span::shortestSpan() {
     if(_numbers.size() < 2)
         throw std::runtime_error("Not enough numbers");

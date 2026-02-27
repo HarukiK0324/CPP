@@ -9,7 +9,11 @@
 class Span {
     public:
         void addNumber(int number);
-        template <typename iter> void addNumbers(iter begin, iter end);
+        template <typename iter> void addNumbers(iter begin, iter end) {
+            if(_numbers.size() + std::distance(begin, end) > _N)
+                throw std::runtime_error("Span is full");
+            _numbers.insert(_numbers.end(), begin, end);
+        }
         unsigned int shortestSpan();
         unsigned int longestSpan();
 
