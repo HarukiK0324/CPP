@@ -11,22 +11,18 @@ template <typename T> class Array {
         std::size_t _size;
     public:
         Array() : _size(0){
-            std::cout << "Default constructor called" << std::endl;
             _array = new T[0];
         }
 
         Array(unsigned int n) : _size(n) {
-            std::cout << "Parameterized constructor called" << std::endl;
             _array = new T[_size]();
         }
 
         Array(const Array& src) : _array(NULL), _size(src._size) {
-            std::cout << "Copy constructor called" << std::endl;
             *this = src;
         }
 
         Array& operator=(const Array& src) {
-            std::cout << "Assignment operator called" << std::endl;
             if (this != &src) {
                 delete[] _array;
                 _size = src._size;
@@ -39,7 +35,6 @@ template <typename T> class Array {
         }
 
         ~Array() {
-            std::cout << "Destructor called" << std::endl;
             delete[] _array;
         }
 

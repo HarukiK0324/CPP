@@ -23,6 +23,5 @@ int main()
     strArray[0] = "Hello";
     strArray[1] = "Wold";
     std::cout << strArray[0] << " " << strArray[1] << std::endl;
-
     return 0;
 }
