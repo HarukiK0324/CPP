@@ -1,12 +1,11 @@
-#ifndef BITCOINEXCHNAGE_HPP
-#define BITCOINEXCHNAGE_HPP
+#ifndef BITCOINEXCHANGE_HPP
+#define BITCOINEXCHANGE_HPP
 
 #include <iostream>
 #include <map>
 #include <string>
 #include <fstream>
-
-#define CSV "data.csv"
+#include <sstream>
 
 class BitcoinExchange {
     public:

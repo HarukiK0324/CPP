@@ -11,9 +11,17 @@ bool BitcoinExchange::is_valid_date(const std::string& data){
             return false;
         }
     }
-    int year = std::stoi(data.substr(0, 4));
-    int month = std::stoi(data.substr(5, 2));
-    int day = std::stoi(data.substr(8, 2));
+    std::stringstream ss(data.substr(0, 4));
+    int year, month, day;
+    std::string leftover;
+    if(!(ss >> year) || (ss >> leftover))
+        return false;
+    std::stringstream ss2(data.substr(5, 2));
+    if(!(ss2 >> month) || (ss2 >> leftover))
+        return false;
+    std::stringstream ss3(data.substr(8, 2));
+    if(!(ss3 >> day) || (ss3 >> leftover))
+        return false;
     if (year < 0|| month < 1 || month > 12 || day < 1 || day > 31)
         return false;
     else if(month%2 == 0 &&  month < 8 && day > 30)
@@ -32,7 +40,7 @@ bool BitcoinExchange::is_valid_date(const std::string& data){
 
 void BitcoinExchange::processFile(const std::string& filename)
 {
-    std::ifstream data(CSV);
+    std::ifstream data("data.csv");
     if(!data.is_open()) {
         std::cout << "Error: could not open csv." << std::endl;
         return;
@@ -49,12 +57,18 @@ void BitcoinExchange::processFile(const std::string& filename)
         size_t commaPos = csvLine.find(',');
         if(commaPos != std::string::npos){
             std::string date = csvLine.substr(0, commaPos);
-            float rate = std::stof(csvLine.substr(commaPos + 1));
+            std::stringstream ss(csvLine.substr(commaPos + 1));
+            std::string leftover;
+            float rate;
+            if(!(ss >> rate) || (ss >> leftover)){
+                std::cout << "Error: invalid csv format." << std::endl;
+                return;
+            }
             exchangeRates[date] = rate;
         }else{
             std::cout << "Error: invalid csv format." << std::endl;
             return;
-        }       
+        }
     }
     std::string line;
     std::getline(file, line);
@@ -72,10 +86,10 @@ void BitcoinExchange::processFile(const std::string& filename)
             continue;
         }
         std::string valueStr = line.substr(pipePos + 1);
+        std::stringstream ss(valueStr);
         float value;
-        try {
-            value = std::stof(valueStr);
-        } catch (const std::exception& e) {
+        std::string leftover;
+        if(!(ss >> value) || (ss >> leftover)){
             std::cout << "Error: invalid value => " << valueStr << std::endl;
             continue;
         }
