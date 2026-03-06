@@ -9,7 +9,13 @@ void RPN::evaluate(const std::string& expr)
     
     while(iss >> token){
         if(std::isdigit(token[0]))
-            stack.push(std::stoi(token));
+        {
+            std::istringstream numStream(token);
+            int num;
+            if(!(numStream >> num) || (numStream >> token))
+                throw std::runtime_error("Invalid number: " + token);
+            stack.push(num);
+        }
         else if(token == "+" || token == "-" || token == "*" || token == "/"){
             if(stack.size() < 2)
                 throw std::runtime_error("Invalid expression");
