@@ -1,5 +1,6 @@
 #include "PmergeMe.hpp"
 #include <iostream>
+#include <sstream>
 
 double get_time_us() {
     struct timeval tv;
@@ -18,17 +19,22 @@ int main(int argc, char** argv)
     std::deque<int> deq;
     for (int i = 1; i < argc; ++i) {
         try {
-            vec.push_back(std::stoi(argv[i]));
-            deq.push_back(std::stoi(argv[i]));
-            if(vec[i - 1] <= 0)
+            std::istringstream ss(argv[i]);
+            std::string leftover;
+            int num;
+            if(!(ss >> num) || (ss >> leftover))
                 throw std::invalid_argument("Error");
+            if(num <= 0)
+                throw std::invalid_argument("Error");
+            vec.push_back(num);
+            deq.push_back(num);
         } catch (const std::exception& e) {
-            std::cerr << "Error: invalid number '" << argv[i] << "'." << std::endl;
+            std::cerr << "Error" << std::endl;
             return 1;
         }
     }
     std::cout << "Before:   ";
-    for (size_t i = 0; i < vec.size(); ++i)
+    for (std::size_t i = 0; i < vec.size(); ++i)
         std::cout << vec[i] << " ";
     std::cout << std::endl;
     PmergeMe sorter;
@@ -39,7 +45,7 @@ int main(int argc, char** argv)
     std::deque<int> sorted_deq = sorter.sort(deq, deq.size());
     double end_deq = get_time_us();
     std::cout << "After:    ";
-    for (size_t i = 0; i < sorted.size(); ++i)
+    for (std::size_t i = 0; i < sorted.size(); ++i)
         std::cout << sorted[i] << " ";
     std::cout << std::endl;
     std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << (end_vec - start_vec) << " us" << std::endl;

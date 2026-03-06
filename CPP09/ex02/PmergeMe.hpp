@@ -15,15 +15,15 @@ class PmergeMe {
         PmergeMe& operator=(const PmergeMe& other);
         ~PmergeMe();
 
-        std::vector<int> vector_sort(std::vector<int> argv, size_t size);
-        std::deque<int> deque_sort(std::deque<int> argv, size_t size);
+        std::vector<int> vector_sort(std::vector<int> argv, std::size_t size);
+        std::deque<int> deque_sort(std::deque<int> argv, std::size_t size);
 
-        template <typename T> T sort(T& con, size_t size){
+        template <typename T> T sort(T& con, std::size_t size){
             if(size <= 1)
                 return con;
             std::multimap<int, int> mp;
             T a;
-            for(size_t i = 0; i < size - 1; i += 2){
+            for(std::size_t i = 0; i < size - 1; i += 2){
                 if(con[i] >= con[i + 1])
                 {
                     mp.insert(std::make_pair(con[i], con[i + 1]));
@@ -37,7 +37,7 @@ class PmergeMe {
             }
             a = sort(a, a.size());
             T b;
-            for(size_t i = 0; i < a.size(); ++i){
+            for(std::size_t i = 0; i < a.size(); ++i){
                 std::multimap<int, int>::iterator it = mp.find(a[i]);
                 b.push_back(it->second);
                 if(it != mp.end())
@@ -50,7 +50,7 @@ class PmergeMe {
             b.erase(b.begin());
             while(!b.empty())
             {
-                size_t bound = std::min((1 << k) - 1, (int)a.size());
+                std::size_t bound = std::min((1 << k) - 1, (int)a.size());
                 while(tk > 0)
                 {
                     this->binary_insert(a, b[tk - 1], bound);
@@ -63,7 +63,7 @@ class PmergeMe {
             return a;
         }
         
-        template <typename T> void binary_insert(T& container, int value, size_t bound) {
+        template <typename T> void binary_insert(T& container, int value, std::size_t bound) {
             typename T::iterator it = std::lower_bound(container.begin(), container.begin() + bound, value);
             container.insert(it, value);
         }
