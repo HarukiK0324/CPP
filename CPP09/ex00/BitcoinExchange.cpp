@@ -45,7 +45,7 @@ void BitcoinExchange::processFile(const std::string& filename)
         std::cout << "Error: could not open csv." << std::endl;
         return;
     }
-    std::ifstream file(filename);
+    std::ifstream file(filename.c_str());
     if (!file.is_open()) {
         std::cout << "Error: could not open file." << std::endl;
         return;
