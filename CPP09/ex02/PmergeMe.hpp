@@ -30,7 +30,7 @@ class PmergeMe {
                 }
             }
             a = sort(a, a.size());
-            size_t elements = a[0].size();
+            std::size_t elements = a[0].size();
             T b;
             T new_a;
             for(std::size_t i = 0; i < a.size(); ++i){
